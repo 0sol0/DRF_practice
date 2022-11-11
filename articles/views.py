@@ -69,7 +69,7 @@ class ArticleDetailView(APIView):
 class CommentView(APIView):
     def get(self, request, article_id):
         article = Article.objects.get(id=article_id)
-        comments = article.comment_set.all()
+        comments = article.comments.all()
         serializer = CommentSerializer(comments, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     

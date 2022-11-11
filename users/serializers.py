@@ -7,12 +7,11 @@ from users.models import User
 class UserProfileSerializer(serializers.ModelSerializer):
     followers = serializers.StringRelatedField(many=True)
     followings = serializers.StringRelatedField(many=True)
-    articles_set = ArticleListSerializer(many=True)
     like_articles = ArticleListSerializer(many=True)
     
     class Meta:
         model = User
-        fields = ('id', 'email', 'followings', 'followers', 'articles_set', 'like_articles')
+        fields = ('id', 'email', 'followings', 'followers', 'like_articles')
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
